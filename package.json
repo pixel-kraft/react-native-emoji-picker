@@ -26,6 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "emoji-datasource": "^15.1.2",
+    "emojibase-data": "^17.0.0",
     "grapheme-splitter": "^1.0.4",
     "react-native-section-list-get-item-layout": "^2.2.3"
   },

@@ -1,9 +1,11 @@
 import { Appearance, Button, StyleSheet, Text, View } from 'react-native';
-import EmojiPicker from './dist/index'
+import EmojiPicker from './components/EmojiPicker'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModal, BottomSheetModalProvider, BottomSheetView } from '@gorhom/bottom-sheet';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
+import compactEmojis from 'emojibase-data/de/compact.json';
+import groupsSubgroups from 'emojibase-data/de/messages.json';
 
 export default function App() {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -45,12 +47,13 @@ export default function App() {
           enablePanDownToClose={true}
         >
           {/* Fixed haight is required so its work with bottom sheet */}
-          <BottomSheetView style={{ height: 700 }}>
+          <BottomSheetView style={{ height: 500 }}>
             <EmojiPicker
               onSelect={onSelect}
               mode={theme}
-              lang={language}
-              columnCount={6}
+              columnCount={8}
+              emojiData={compactEmojis}
+              categoryData={groupsSubgroups}
               theme={{
                 light: {
                   toolbar: {
@@ -66,7 +69,7 @@ export default function App() {
                     }
                   }
                 }
-              }}  
+              }}
             />
           </BottomSheetView>
         </BottomSheetModal>

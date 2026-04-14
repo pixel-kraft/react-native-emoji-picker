@@ -10,14 +10,14 @@ import Flags from "./flags"
 import Recents from "./recents"
 
 export const icons = {
-  smileys_and_emotion: SmileysAndEmotion,
-  people_and_body: PeopleAndBody,
-  animals_and_nature: AnimalsAndNature,
-  food_and_drink: FoodAndDrink,
-  travel_and_places: TravelAndPlaces,
-  activities: Activities,
-  objects: Objects,
-  symbols: Symbols,
-  flags: Flags,
-  recents: Recents,
+  'smileys-emotion': SmileysAndEmotion,
+  'people-body': PeopleAndBody,
+  'animals-nature': AnimalsAndNature,
+  'food-drink': FoodAndDrink,
+  'travel-places': TravelAndPlaces,
+  'activities': Activities,
+  'objects': Objects,
+  'symbols': Symbols,
+  'flags': Flags,
+  'recents': Recents,
 }

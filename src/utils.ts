@@ -1,7 +1,9 @@
+import GraphemeSplitter from 'grapheme-splitter';
 
-import GraphemeSplitter = require('grapheme-splitter')
- 
-import { Emoji } from './types';
+import {
+  Emoji,
+  QualifiedEmoji,
+} from './types';
 
 const splitter = new GraphemeSplitter();
 
@@ -18,7 +20,7 @@ export const mightRenderAsMultiple = (unicodeSequence: string) => {
 const charFromUtf16 = (utf16: string) =>
   String.fromCodePoint(...utf16.split('-').map((u) => parseInt(u, 16)));
 
-export const charFromEmojiObject = (obj: Emoji) => charFromUtf16(obj.unified);
+export const charFromEmojiObject = (obj: QualifiedEmoji) => charFromUtf16(obj.unified);
 
 const emojiCache = new Map<string, string>();
 

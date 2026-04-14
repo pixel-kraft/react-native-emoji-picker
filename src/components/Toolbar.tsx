@@ -39,14 +39,14 @@ const Toolbar = ({ selectedCategory, onSelectCategory, theme, iconWidth, withRec
   return (
     <View
       style={[styles.toolbarContainer, theme.toolbar.container]}>
-      {Object.entries(Categories).map(([key, category], index) => (
+      {Categories.map((key, index) => (
         (key === 'recents' && !withRecent) ? null :
           <TouchableOpacity
             key={key}
             onPress={() => {
-              onSelectCategory(key as Category, withRecent ? index : index-1);
+              onSelectCategory(key, withRecent ? index : index - 1);
             }}>
-            {getCategoryIcon(key as Category)}
+            {getCategoryIcon(key)}
           </TouchableOpacity>
       ))}
     </View>
