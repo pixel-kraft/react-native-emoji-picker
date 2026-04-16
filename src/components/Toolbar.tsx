@@ -1,7 +1,10 @@
 import { memo, useCallback } from "react";
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Theme } from "../theme";
-import { Category } from "../types";
+import {
+  Category,
+  CategoryWithoutComponent,
+} from '../types';
 import { icons } from "../icons";
 import { Categories } from "../constants";
 
@@ -24,7 +27,7 @@ const Toolbar = ({ selectedCategory, onSelectCategory, theme, iconWidth, withRec
     24,
   );
 
-  const getCategoryIcon = useCallback((category: Category) => {
+  const getCategoryIcon = useCallback((category: CategoryWithoutComponent) => {
 
     const Icon = icons[category];
 

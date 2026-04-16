@@ -1,8 +1,10 @@
-import { Category } from './types';
+import {
+  CategoryWithoutComponent,
+} from './types';
 
 export const STORAGE_KEY = 'emoji-picker-recent/v1';
 
-export const Categories: Category[] = [
+export const Categories: CategoryWithoutComponent[] = [
   'recents',
   'smileys-emotion',
   'people-body',

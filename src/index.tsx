@@ -9,6 +9,7 @@ import {
 import { charFromEmojiObject, deepMerge, throttle } from './utils';
 import {
   Category,
+  CategoryWithoutComponent,
   DeepPartial,
   Emoji,
   MessagesDataset,
@@ -128,7 +129,7 @@ const EmojiPicker: React.FC<EmojiPickerProps> = ({ mode = 'light', columnCount =
   const filteredRecentEmojies = useMemo(() => filterRecentEmojiesBySearch(searchQuery), [searchQuery, recentEmojis]);
 
   const sections = useMemo(() => {
-    const categories: MessagesDataset['groups'] = categoryData.groups.filter((group) => Categories.includes(group.key));
+    const categories: MessagesDataset['groups'] = categoryData.groups.filter((group) => Categories.includes(group.key as CategoryWithoutComponent));
 
     if (filteredRecentEmojies.length > 0) {
       categories.unshift({

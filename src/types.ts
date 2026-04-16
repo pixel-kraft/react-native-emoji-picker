@@ -8,13 +8,14 @@ export interface QualifiedEmoji extends Omit<CompactEmoji, 'hexcode'> {
 }
 
 export interface GroupMessage extends Omit<BaseGroupMessage, 'key'> {
-  key: Category | 'component'; // "component" will never be displayed as category
+  key: Category; // "component" will never be displayed as category
 }
 export interface MessagesDataset extends Omit<BaseMessageDataset, 'groups'> {
   groups: GroupMessage[];
 }
 
-export type Category = Exclude<GroupKey, 'component'> | 'recents';
+export type Category = GroupKey | 'recents';
+export type CategoryWithoutComponent = Exclude<Category, 'component'>;
 
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
