@@ -15,8 +15,10 @@
     "component"
   ],
   "scripts": {
-    "build": "tsc --watch",
-    "example": "cp -r dist/. example/dist"
+    "build": "tsc",
+    "dev": "tsc -w",
+    "example": "cp -r dist/. example/dist",
+    "prepare": "npm run build"
   },
   "author": "Dmytro Ivashchuk",
   "repository": {
