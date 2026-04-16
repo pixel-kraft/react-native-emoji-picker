@@ -69,7 +69,6 @@ const EmojiPicker: React.FC<EmojiPickerProps> = ({ mode = 'light', columnCount =
   const onLayout = useCallback(
     (e: LayoutChangeEvent) => {
       const { width } = e.nativeEvent.layout;
-      console.log({ width, columnCount, GRID_GAP, colSize })
       const newColSize = Math.floor((width - (GRID_PADDING_HORIZONTAL * 2)) / columnCount) - (GRID_GAP - .75);
       if (newColSize !== colSize) {
         setColSize(newColSize);
@@ -143,7 +142,6 @@ const EmojiPicker: React.FC<EmojiPickerProps> = ({ mode = 'light', columnCount =
       .map(({ key, message, order }, index) => {
         if (key === 'recents') {
           return {
-            title: message,
             data: [filteredRecentEmojies],
             key: key,
           };
@@ -171,8 +169,6 @@ const EmojiPicker: React.FC<EmojiPickerProps> = ({ mode = 'light', columnCount =
 
         const numberOfRows = Math.ceil(rowData.length / columnCount);
         const itemHeight = numberOfRows * colSize;
-
-        console.log({ numberOfRows, colSize, itemHeight })
 
         return itemHeight;
       },
@@ -291,10 +287,10 @@ const EmojiPicker: React.FC<EmojiPickerProps> = ({ mode = 'light', columnCount =
           ref={sectionListRef}
           sections={sections}
           renderItem={renderSectionItem}
-          keyExtractor={(item, index) => `group-${sections[index].key}` || sections[index].title}
+          keyExtractor={(item, index) => sections[index].key}
           stickySectionHeadersEnabled={false}
           renderSectionHeader={({ section }) => {
-            if (section.data[0].length === 0) {
+            if (section.data[0].length === 0 || section.key === 'recents') {
               return null;
             }
             return <Text style={[styles.sectionHeaderStyle, themeMode.flatList.section.header]}>{section.title}</Text>;
