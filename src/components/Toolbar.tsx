@@ -29,7 +29,7 @@ const Toolbar = ({ selectedCategory, onSelectCategory, theme, iconWidth, withRec
 
   const getCategoryIcon = useCallback((category: CategoryWithoutComponent) => {
 
-    const Icon = icons[category];
+    const Icon = icons[category as keyof typeof icons];
 
     return <Icon width={calculatedIconWidth}
       color={
