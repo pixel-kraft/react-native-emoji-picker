@@ -6,6 +6,3 @@
 
 # deps
 node_modules/
-
-# prod
-dist/

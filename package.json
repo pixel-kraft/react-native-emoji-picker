@@ -17,8 +17,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",
-    "example": "cp -r dist/. example/dist",
-    "prepare": "npm run build"
+    "example": "cp -r dist/. example/dist"
   },
   "author": "Dmytro Ivashchuk",
   "repository": {
